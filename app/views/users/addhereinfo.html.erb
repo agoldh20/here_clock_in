@@ -1,0 +1,6 @@
+<%= form_tag "/addhereinfo/#{@user.id}", method: :patch do %>
+  <input type="text" name="here_id" placeholder="Here ID">
+  <input type="password" name="here_password" placeholder="Password">
+  <input type="password" name="here_password_confirmation" placeholder="Confrim Password">
+  <input type="submit" name="Add Here Info">
+<% end %>
