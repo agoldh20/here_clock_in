@@ -1,7 +1,17 @@
-<%= form_tag "/new", method: :post do %>
-  <input type="text" name="first_name" placeholder="First Name">
-  <input type="text" name="last_name" placeholder="Last Name">
-  <input type="password" name="password" placeholder="Password">
-  <input type="password" name="password_confirmation" placeholder="Confrim Password">
-  <input type="submit" name="Create Account">
+<%= form_tag "/userinfo/", method: :post do %>
+  <div>
+    <input type="text" name="first_name" placeholder="First Name">
+  </div>
+  <div>
+    <input type="text" name="last_name" placeholder="Last Name">
+  <div>
+  </div>
+    <input type="password" name="password" placeholder="Password">
+  </div>
+  <div>
+    <input type="password" name="password_confirmation" placeholder="Confrim Password">
+  </div>
+  <div>
+    <input type="submit" value="Create Account">
+  </div>
 <% end %>

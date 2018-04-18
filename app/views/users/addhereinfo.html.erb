@@ -1,6 +1,11 @@
-<%= form_tag "/addhereinfo/#{@user.id}", method: :patch do %>
-  <input type="text" name="here_id" placeholder="Here ID">
-  <input type="password" name="here_password" placeholder="Password">
-  <input type="password" name="here_password_confirmation" placeholder="Confrim Password">
-  <input type="submit" name="Add Here Info">
+<%= form_tag "/hereinfo/#{@user.id}", method: :patch do %>
+  <div>
+    <input type="text" name="here_id" placeholder="Here ID" value="<%= @user.here_id %>">
+  </div>
+  <div>
+    <input type="password" name="here_password" placeholder="Here Password" value="<%= @user.here_password %>">
+  </div>
+  <div>
+    <input type="submit" value="Add Here Info">
+  </div>
 <% end %>

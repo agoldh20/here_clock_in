@@ -1,0 +1,9 @@
+<h1><%= @user.last_name %>, <%= @user.first_name %></h1>
+<h2>Here ID: <%= @user.here_id %></h2>
+
+<div>
+  <h1><%= link_to "Clock In" %></h1>
+</div>
+<%= link_to "Add/Edit Here Info", "/hereinfo/#{@user.id}" %>
+</br>
+<%= link_to "Edit User Info", "/userinfo/#{@user.id}/edit" %>

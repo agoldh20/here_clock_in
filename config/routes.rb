@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   get '/index' => 'users#index'
 
-  get '/user/new' => 'users#new'
-  post '/user/' => 'users#create'
+  get '/new' => 'users#new'
+  post '/userinfo' => 'users#create'
 
-  get '/user/:id' => 'users#show'
+  get '/userinfo/:id' => 'users#show'
 
-  get '/user/:id/edit' => 'users#edit'
-  patch '/user/:id' => 'users#update'
-  patch '/addhereinfo/:id' => 'users#addhereinfo'
+  get '/userinfo/:id/edit' => 'users#edit'
+  patch '/userinfo/:id' => 'users#update'
+
+  get '/hereinfo/:id' => 'users#addhereinfo'
+  patch '/hereinfo/:id' => 'users#updatehereinfo'
 
   delete '/user/:id' => 'users#destroy'
 

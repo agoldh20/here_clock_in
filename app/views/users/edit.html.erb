@@ -1,0 +1,17 @@
+<%= form_tag "/userinfo/#{@user.id}", method: :patch do %>
+  <div>
+    <input type="text" name="first_name" value="<%= @user.first_name %>">
+  </div>
+  <div>
+    <input type="text" name="last_name" value="<%= @user.last_name %>">
+  </div>
+  <div>
+    <input type="password" name="password" placeholder="New Password">
+  </div>
+  <div>
+    <input type="password" name="password_confirmation" placeholder="Confirm New Password">
+  </div>
+  <div>
+    <input type="submit" value="Update">
+  </div>
+<% end %>
