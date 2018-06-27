@@ -1,0 +1,14 @@
+<%= form_tag "/hereinfo", method: :post do %>
+  <div>
+    <input type="text" name="here_id" placeholder="Here ID">
+  </div>
+  <div>
+    <input type="password" name="password" placeholder="Here Password">
+  </div>
+  <div>
+    <input type="password" name="password_confirmation" placeholder="Confirm Here Password">
+  </div>
+  <div>
+    <input type="submit" value="Add Here Info">
+  </div>
+<% end %>

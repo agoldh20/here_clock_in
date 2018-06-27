@@ -9,10 +9,17 @@ Rails.application.routes.draw do
   get '/userinfo/:id/edit' => 'users#edit'
   patch '/userinfo/:id' => 'users#update'
 
-  get '/hereinfo/:id' => 'users#addhereinfo'
-  patch '/hereinfo/:id' => 'users#updatehereinfo'
-
   delete '/user/:id' => 'users#destroy'
+#====================================================
+  get '/hereinfo' => 'here_params#new'
+  post '/hereinfo' => 'here_params#create'
+
+  get 'hereinfo/:id' => 'here_params#show'
+
+  get '/hereinfo/:id/edit' => 'here_params#edit'
+  patch '/hereinfo/:id' => 'here_params#update'
+
+  delete '/hereinfo/:id' => 'here_params#delete'
 #====================================================
   get '/' => 'sessions#new'
   get '/login' => 'sessions#new'
