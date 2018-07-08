@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  # EC: Let's talk Tuesday about how this method will be used.
   def authenticate_user!
     redirect_to '/login' unless current_user
   end
