@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:create, :new]
+  
   def index
     
   end
@@ -9,11 +12,12 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(
-                        first_name: params[:first_name],
-                        last_name: params[:last_name],
-                        password: params[:password],
-                        password_confirmation: params[:password_confirmation])
-
+                        first_name: user_params[:first_name],
+                        last_name: user_params[:last_name],
+                        user_name: user_params[:user_name],
+                        password: user_params[:password],
+                        password_confirmation: user_params[:password_confirmation])
+    session[:user_id] = user.id
     redirect_to "/userinfo/#{user.id}"            
   end
 
@@ -27,10 +31,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(first_name: params[:first_name],
-                 last_name: params[:last_name],
-                 password: params[:password],
-                 password_confirmation: params[:password_confirmation])
+    @user.update(first_name: user_params[:first_name],
+                 last_name: user_params[:last_name],
+                 user_name: user_params[:user_name],
+                 password: user_params[:password],
+                 password_confirmation: user_params[:password_confirmation])
 
     redirect_to "/userinfo/#{@user.id}"            
   end
@@ -39,9 +44,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  private
 
-  
-  # def clock_in
-  #   @user = User.find(params[:id])
-  # end
+  def user_params
+    params.require(:user).permit(
+                                :first_name,
+                                :last_name,
+                                :user_name,
+                                :password,
+                                :password_confirmation)
+  end
 end

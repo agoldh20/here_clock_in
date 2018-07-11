@@ -1,12 +1,12 @@
-<% if  current_user && @user.id == current_user.id %>
+<% if current_user && @user.id == current_user.id %>
   <h1><%= @user.last_name %>, <%= @user.first_name %></h1>
-  <h2>Here ID: <%= @user.here_id %></h2>
+  <h2>Here ID: <%= @user.try(:here_id) %></h2>
 
   <div>
     <h1><%= link_to "Clock In" %></h1>
   </div>
   <div></div>
-    <%= link_to "Add/Edit Here Info", "/hereinfo/#{@user.id}" %>
+    <%= link_to "Add/Edit Here Info", hereinfo_edit_path %>
   </div>
   <div>
     <%= link_to "Edit User Info", "/userinfo/#{@user.id}/edit" %>
